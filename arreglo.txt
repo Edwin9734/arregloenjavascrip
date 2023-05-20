@@ -1,0 +1,106 @@
+//crear una clase
+class HasTable {
+    constructor(size) {
+        this.data= new Array(size);
+    }
+//funcion que me va a generar el ID
+    hasMetod(key){
+        let hash = 0;
+        for(let i =0;i < (key).length ; i++){
+            hash += ( key.charCodeAt (i)  *i) % this.data.length;
+            
+        }
+        return hash % this.data.length;
+        
+    }
+
+set(key,value){
+
+const address= this.hasMetod(key);//genera un ide y lo gruarda en address
+    if (!this.data[address]){
+        this.data[address]=[]; // si no existe, crea un arreglo vacio
+    
+}
+this.data[address].push([key,value]);
+    return this.data;
+}
+    
+//fin de la clase
+
+}
+
+
+const hash = new HasTable(50);
+
+hash.set("maria",1990);
+hash.set("juan",1991);
+hash.set("pedro",1992);
+hash.set("hector",1993);
+hash.set("juana",1994);
+hash.set("mari",1995);
+
+
+
+
+
+ejecución en consola
+11
+: 
+Array(1)
+0
+: 
+(2) ['hector', 1993]
+length
+: 
+1
+[[Prototype]]
+: 
+Array(0)
+28
+: 
+[Array(2)]
+29
+: 
+[Array(2)]
+37
+: 
+Array(1)
+0
+: 
+(2) ['pedro', 1992]
+length
+: 
+1
+[[Prototype]]
+: 
+Array(0)
+40
+: 
+Array(1)
+0
+: 
+(2) ['mari', 1995]
+length
+: 
+1
+[[Prototype]]
+: 
+Array(0)
+41
+: 
+Array(1)
+0
+: 
+(2) ['juan', 1991]
+length
+: 
+1
+[[Prototype]]
+: 
+Array(0)
+length
+: 
+50
+[[Prototype]]
+: 
+Array(0)
